@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "pulse": {
+      "type": "string",
+      "description": "The generated pulse line"
+    }
+  },
+  "required": ["pulse"]
+}

@@ -1,9 +1,77 @@
-# A function defines the task we're tackling (e.g. generating a haiku)...
-[functions.generate_haiku]
+# ┌────────────────────────────────────────────────────────────────────────────┐
+# │                                   MODELS                                   │
+# └────────────────────────────────────────────────────────────────────────────┘
+
+[models."deepseek-chat"]
+routing = ["deepseek"]
+
+[models."deepseek-chat".providers.deepseek]
+type = "deepseek"
+model_name = "deepseek-chat"
+
+[models."deepseek-reasoner"]
+routing = ["deepseek"]
+
+[models."deepseek-reasoner".providers.deepseek]
+type = "deepseek"
+model_name = "deepseek-reasoner"
+
+# ┌────────────────────────────────────────────────────────────────────────────┐
+# │                                 FUNCTIONS                                  │
+# └────────────────────────────────────────────────────────────────────────────┘
+
+[functions.simple_llm_call]
 type = "chat"
 
-# ... and a variant is one of many implementations we can use to tackle it (a choice of prompt, model, etc.).
-# Since we only have one variant for this function, the gateway will always select it.
-[functions.generate_haiku.variants.gpt_4o_mini]
+[functions.simple_llm_call.variants.baseline]
 type = "chat_completion"
-model = "openai::gpt-4o-mini"
+model = "deepseek-chat"
+
+# ┌────────────────────────────────────────────────────────────────────────────┐
+# │                              STAGECRAFT FUNCTIONS                           │
+# └────────────────────────────────────────────────────────────────────────────┘
+
+[functions.stagecraft_dialogue_exchange]
+type = "chat"
+
+[functions.stagecraft_dialogue_exchange.variants.deepseek_baseline]
+type = "chat_completion"
+model = "deepseek-chat"
+weight = 1
+
+[functions.stagecraft_payoff_calculation]
+type = "chat"
+
+[functions.stagecraft_payoff_calculation.variants.deepseek_reasoner]
+type = "chat_completion"
+model = "deepseek-reasoner"
+weight = 1
+
+# ┌────────────────────────────────────────────────────────────────────────────┐
+# │                              STAGECRAFT FUNCTIONS                           │
+# └────────────────────────────────────────────────────────────────────────────┘
+
+[functions.stagecraft_dialogue_exchange]
+type = "chat"
+
+[functions.stagecraft_dialogue_exchange.variants.deepseek_baseline]
+type = "chat_completion"
+model = "deepseek-chat"
+weight = 1
+
+[functions.stagecraft_payoff_calculation]
+type = "chat"
+
+[functions.stagecraft_payoff_calculation.variants.deepseek_reasoner]
+type = "chat_completion"
+model = "deepseek-reasoner"
+weight = 1
+
+# ┌────────────────────────────────────────────────────────────────────────────┐
+# │                                  METRICS                                   │
+# └────────────────────────────────────────────────────────────────────────────┘
+
+[metrics.task_success]
+type = "boolean"
+optimize = "max"
+level = "episode"

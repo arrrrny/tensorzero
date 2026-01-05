@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "InitiatorArchetype": {
+      "type": "string",
+      "description": "The archetype of the initiator"
+    },
+    "ResponseLine": {
+      "type": "string",
+      "description": "The response line from the previous turn"
+    },
+    "ChosenResolutionScript": {
+      "type": "string",
+      "description": "The chosen resolution script"
+    }
+  },
+  "required": ["InitiatorArchetype", "ResponseLine", "ChosenResolutionScript"]
+}

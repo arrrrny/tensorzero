@@ -1,0 +1,13 @@
+Parse the parameters from the user message and generate the resolution accordingly.
+
+**TASK: GENERATE THE RESOLUTION (TURN 3).**
+
+**INSTRUCTIONS:**
+Generate the **final line** for the initiator, embodying the ChosenResolutionScript, which responds to the target's reply.
+
+**STYLE:** Terse, psychological, loaded with subtext. Use metaphors of jungles, mazes, machines, and mirrors where appropriate. No greetings or closings. Pure transactional substance.
+
+**OUTPUT FORMAT (JSON):**
+{
+  "resolution": "[Generated Resolution Line]"
+}

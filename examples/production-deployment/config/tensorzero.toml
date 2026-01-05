@@ -2,12 +2,55 @@
 # │                                   MODELS                                   │
 # └────────────────────────────────────────────────────────────────────────────┘
 
-[models."gpt-4o-mini-2024-07-18"]
-routing = ["openai"]
+[models."deepseek-chat"]
+routing = ["deepseek"]
 
-[models."gpt-4o-mini-2024-07-18".providers.openai]
-type = "openai"
-model_name = "gpt-4o-mini-2024-07-18"
+[models."deepseek-chat".providers.deepseek]
+type = "deepseek"
+model_name = "deepseek-chat"
+
+[models."deepseek-reasoner"]
+routing = ["deepseek"]
+
+[models."deepseek-reasoner".providers.deepseek]
+type = "deepseek"
+model_name = "deepseek-reasoner"
+
+[models."mistralai/mistral-small-creative"]
+routing = ["openrouter"]
+
+[models."mistralai/mistral-small-creative".providers.openrouter]
+type = "openrouter"
+model_name = "mistralai/mistral-small-creative"
+
+[models."xiaomi/mimo-v2-flash:free"]
+routing = ["openrouter"]
+
+[models."xiaomi/mimo-v2-flash:free".providers.openrouter]
+type = "openrouter"
+model_name = "xiaomi/mimo-v2-flash:free"
+
+
+[models."moonshotai/kimi-k2:free"]
+routing = ["openrouter"]
+
+[models."moonshotai/kimi-k2:free".providers.openrouter]
+type = "openrouter"
+model_name = "moonshotai/kimi-k2:free"
+
+[models."cognitivecomputations/dolphin-mistral-24b-venice-edition:free"]
+routing = ["openrouter"]
+
+[models."cognitivecomputations/dolphin-mistral-24b-venice-edition:free".providers.openrouter]
+type = "openrouter"
+model_name = "cognitivecomputations/dolphin-mistral-24b-venice-edition:free"
+
+[models."google/gemma-3-27b-it:free"]
+routing = ["openrouter"]
+
+[models."google/gemma-3-27b-it:free".providers.openrouter]
+type = "openrouter"
+model_name = "google/gemma-3-27b-it:free"
 
 # ┌────────────────────────────────────────────────────────────────────────────┐
 # │                                 FUNCTIONS                                  │
@@ -18,7 +61,197 @@ type = "chat"
 
 [functions.simple_llm_call.variants.baseline]
 type = "chat_completion"
-model = "gpt-4o-mini-2024-07-18"
+model = "deepseek-chat"
+
+# ┌────────────────────────────────────────────────────────────────────────────┐
+# │                              STAGECRAFT FUNCTIONS                           │
+# └────────────────────────────────────────────────────────────────────────────┘
+
+[functions.stagecraft_pulse]
+type = "chat"
+
+[functions.stagecraft_pulse.variants.deepseek_baseline]
+type = "chat_completion"
+model = "deepseek-chat"
+weight = 0
+system_template = "functions/stagecraft_pulse/variants/deepseek_baseline/system_template.minijinja"
+user_template = "functions/stagecraft_pulse/variants/deepseek_baseline/user_template.minijinja"
+
+[functions.stagecraft_pulse.variants.openrouter_mistral]
+type = "chat_completion"
+model = "mistralai/mistral-small-creative"
+weight = 0
+system_template = "functions/stagecraft_pulse/variants/deepseek_baseline/system_template.minijinja"
+user_template = "functions/stagecraft_pulse/variants/deepseek_baseline/user_template.minijinja"
+
+[functions.stagecraft_pulse.variants.openrouter_mimo]
+type = "chat_completion"
+model = "xiaomi/mimo-v2-flash:free"
+weight = 0.2
+system_template = "functions/stagecraft_pulse/variants/deepseek_baseline/system_template.minijinja"
+user_template = "functions/stagecraft_pulse/variants/deepseek_baseline/user_template.minijinja"
+
+[functions.stagecraft_pulse.variants.openrouter_kimi]
+type = "chat_completion"
+model = "moonshotai/kimi-k2:free"
+weight = 0
+system_template = "functions/stagecraft_pulse/variants/deepseek_baseline/system_template.minijinja"
+user_template = "functions/stagecraft_pulse/variants/deepseek_baseline/user_template.minijinja"
+
+[functions.stagecraft_pulse.variants.openrouter_dolphin]
+type = "chat_completion"
+model = "cognitivecomputations/dolphin-mistral-24b-venice-edition:free"
+weight = 0
+system_template = "functions/stagecraft_pulse/variants/deepseek_baseline/system_template.minijinja"
+user_template = "functions/stagecraft_pulse/variants/deepseek_baseline/user_template.minijinja"
+
+[functions.stagecraft_pulse.variants.openrouter_gemma]
+type = "chat_completion"
+model = "google/gemma-3-27b-it:free"
+weight = 0
+system_template = "functions/stagecraft_pulse/variants/deepseek_baseline/system_template.minijinja"
+user_template = "functions/stagecraft_pulse/variants/deepseek_baseline/user_template.minijinja"
+
+[functions.stagecraft_response]
+type = "chat"
+
+[functions.stagecraft_response.variants.deepseek_baseline]
+type = "chat_completion"
+model = "deepseek-chat"
+weight = 0
+system_template = "functions/stagecraft_response/variants/deepseek_baseline/system_template.minijinja"
+user_template = "functions/stagecraft_response/variants/deepseek_baseline/user_template.minijinja"
+
+[functions.stagecraft_response.variants.openrouter_mistral]
+type = "chat_completion"
+model = "mistralai/mistral-small-creative"
+weight = 0
+system_template = "functions/stagecraft_response/variants/deepseek_baseline/system_template.minijinja"
+user_template = "functions/stagecraft_response/variants/deepseek_baseline/user_template.minijinja"
+
+[functions.stagecraft_response.variants.openrouter_mimo]
+type = "chat_completion"
+model = "xiaomi/mimo-v2-flash:free"
+weight = 0.2
+system_template = "functions/stagecraft_response/variants/deepseek_baseline/system_template.minijinja"
+user_template = "functions/stagecraft_response/variants/deepseek_baseline/user_template.minijinja"
+
+
+
+[functions.stagecraft_response.variants.openrouter_kimi]
+type = "chat_completion"
+model = "moonshotai/kimi-k2:free"
+weight = 0.1
+system_template = "functions/stagecraft_response/variants/deepseek_baseline/system_template.minijinja"
+user_template = "functions/stagecraft_response/variants/deepseek_baseline/user_template.minijinja"
+
+[functions.stagecraft_response.variants.openrouter_dolphin]
+type = "chat_completion"
+model = "cognitivecomputations/dolphin-mistral-24b-venice-edition:free"
+weight = 0.1
+system_template = "functions/stagecraft_response/variants/deepseek_baseline/system_template.minijinja"
+user_template = "functions/stagecraft_response/variants/deepseek_baseline/user_template.minijinja"
+
+[functions.stagecraft_response.variants.openrouter_gemma]
+type = "chat_completion"
+model = "google/gemma-3-27b-it:free"
+weight = 0.1
+system_template = "functions/stagecraft_response/variants/deepseek_baseline/system_template.minijinja"
+user_template = "functions/stagecraft_response/variants/deepseek_baseline/user_template.minijinja"
+
+[functions.stagecraft_resolution]
+type = "chat"
+
+[functions.stagecraft_resolution.variants.deepseek_baseline]
+type = "chat_completion"
+model = "deepseek-chat"
+weight = 0
+system_template = "functions/stagecraft_resolution/variants/deepseek_baseline/system_template.minijinja"
+user_template = "functions/stagecraft_resolution/variants/deepseek_baseline/user_template.minijinja"
+
+[functions.stagecraft_resolution.variants.openrouter_mistral]
+type = "chat_completion"
+model = "mistralai/mistral-small-creative"
+weight = 0
+system_template = "functions/stagecraft_resolution/variants/deepseek_baseline/system_template.minijinja"
+user_template = "functions/stagecraft_resolution/variants/deepseek_baseline/user_template.minijinja"
+
+[functions.stagecraft_resolution.variants.openrouter_mimo]
+type = "chat_completion"
+model = "xiaomi/mimo-v2-flash:free"
+weight = 0.2
+system_template = "functions/stagecraft_resolution/variants/deepseek_baseline/system_template.minijinja"
+user_template = "functions/stagecraft_resolution/variants/deepseek_baseline/user_template.minijinja"
+
+
+
+[functions.stagecraft_resolution.variants.openrouter_kimi]
+type = "chat_completion"
+model = "moonshotai/kimi-k2:free"
+weight = 0.1
+system_template = "functions/stagecraft_resolution/variants/deepseek_baseline/system_template.minijinja"
+user_template = "functions/stagecraft_resolution/variants/deepseek_baseline/user_template.minijinja"
+
+[functions.stagecraft_resolution.variants.openrouter_dolphin]
+type = "chat_completion"
+model = "cognitivecomputations/dolphin-mistral-24b-venice-edition:free"
+weight = 0.1
+system_template = "functions/stagecraft_resolution/variants/deepseek_baseline/system_template.minijinja"
+user_template = "functions/stagecraft_resolution/variants/deepseek_baseline/user_template.minijinja"
+
+[functions.stagecraft_resolution.variants.openrouter_gemma]
+type = "chat_completion"
+model = "google/gemma-3-27b-it:free"
+weight = 0.1
+system_template = "functions/stagecraft_resolution/variants/deepseek_baseline/system_template.minijinja"
+user_template = "functions/stagecraft_resolution/variants/deepseek_baseline/user_template.minijinja"
+
+[functions.stagecraft_payoff_calculation]
+type = "chat"
+
+[functions.stagecraft_payoff_calculation.variants.deepseek_reasoner]
+type = "chat_completion"
+model = "deepseek-reasoner"
+weight = 0
+system_template = "functions/stagecraft_payoff_calculation/variants/deepseek_reasoner/system_template.minijinja"
+user_template = "functions/stagecraft_payoff_calculation/variants/deepseek_reasoner/user_template.minijinja"
+
+[functions.stagecraft_payoff_calculation.variants.openrouter_mistral]
+type = "chat_completion"
+model = "mistralai/mistral-small-creative"
+weight = 0
+system_template = "functions/stagecraft_payoff_calculation/variants/deepseek_reasoner/system_template.minijinja"
+user_template = "functions/stagecraft_payoff_calculation/variants/deepseek_reasoner/user_template.minijinja"
+
+[functions.stagecraft_payoff_calculation.variants.openrouter_mimo]
+type = "chat_completion"
+model = "xiaomi/mimo-v2-flash:free"
+weight = 0.2
+system_template = "functions/stagecraft_payoff_calculation/variants/deepseek_reasoner/system_template.minijinja"
+user_template = "functions/stagecraft_payoff_calculation/variants/deepseek_reasoner/user_template.minijinja"
+
+
+
+[functions.stagecraft_payoff_calculation.variants.openrouter_kimi]
+type = "chat_completion"
+model = "moonshotai/kimi-k2:free"
+weight = 0.1
+system_template = "functions/stagecraft_payoff_calculation/variants/deepseek_reasoner/system_template.minijinja"
+user_template = "functions/stagecraft_payoff_calculation/variants/deepseek_reasoner/user_template.minijinja"
+
+[functions.stagecraft_payoff_calculation.variants.openrouter_dolphin]
+type = "chat_completion"
+model = "cognitivecomputations/dolphin-mistral-24b-venice-edition:free"
+weight = 0.1
+system_template = "functions/stagecraft_payoff_calculation/variants/deepseek_reasoner/system_template.minijinja"
+user_template = "functions/stagecraft_payoff_calculation/variants/deepseek_reasoner/user_template.minijinja"
+
+[functions.stagecraft_payoff_calculation.variants.openrouter_gemma]
+type = "chat_completion"
+model = "google/gemma-3-27b-it:free"
+weight = 0.1
+system_template = "functions/stagecraft_payoff_calculation/variants/deepseek_reasoner/system_template.minijinja"
+user_template = "functions/stagecraft_payoff_calculation/variants/deepseek_reasoner/user_template.minijinja"
 
 # ┌────────────────────────────────────────────────────────────────────────────┐
 # │                                  METRICS                                   │

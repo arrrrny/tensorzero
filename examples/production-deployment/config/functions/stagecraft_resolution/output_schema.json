@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "resolution": {
+      "type": "string",
+      "description": "The generated resolution line"
+    }
+  },
+  "required": ["resolution"]
+}

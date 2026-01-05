@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "InitiatorArchetype": {
+      "type": "string",
+      "description": "The archetype of the initiator"
+    },
+    "TargetArchetype": {
+      "type": "string",
+      "description": "The archetype of the target"
+    },
+    "ChosenPulseScript": {
+      "type": "string",
+      "description": "The chosen pulse script"
+    }
+  },
+  "required": ["InitiatorArchetype", "TargetArchetype", "ChosenPulseScript"]
+}

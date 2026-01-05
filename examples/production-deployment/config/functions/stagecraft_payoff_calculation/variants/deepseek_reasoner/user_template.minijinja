@@ -1,0 +1,9 @@
+Parse the parameters from the user message and calculate the social capital accordingly.
+
+**TASK: CALCULATE SOCIAL CAPITAL.**
+
+**OUTPUT FORMAT (JSON):**
+{
+  "social_capital": [calculated SC],
+  "explanation": "[Brief explanation of the calculation]"
+}

@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "InitiatorArchetype": {
+      "type": "string",
+      "description": "The archetype of the initiator"
+    },
+    "TargetArchetype": {
+      "type": "string",
+      "description": "The archetype of the target"
+    },
+    "GuessedTargetArchetype": {
+      "type": "string",
+      "description": "The guessed archetype of the target"
+    },
+    "StatedIntent": {
+      "type": "string",
+      "description": "The stated intent"
+    },
+    "ActualIntent": {
+      "type": "string",
+      "description": "The actual intent"
+    }
+  },
+  "required": [
+    "InitiatorArchetype",
+    "TargetArchetype",
+    "GuessedTargetArchetype",
+    "StatedIntent",
+    "ActualIntent"
+  ]
+}

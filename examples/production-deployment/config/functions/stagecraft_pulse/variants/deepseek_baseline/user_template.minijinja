@@ -1,0 +1,9 @@
+Generate a HARVEST-GRADE opening pulse line based on the parameters in the user message.
+
+**INSTRUCTIONS:**
+Write ONE line of dialogue that feels personal and direct, triggers immediate emotional response, and reflects the specific script tactic.
+
+**OUTPUT FORMAT (JSON only):**
+{
+  "pulse": "[Your single, harvest-grade line here]"
+}

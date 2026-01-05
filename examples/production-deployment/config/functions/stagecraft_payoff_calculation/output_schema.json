@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "social_capital": {
+      "type": "integer",
+      "description": "The calculated social capital score"
+    },
+    "explanation": {
+      "type": "string",
+      "description": "Explanation of the calculation"
+    }
+  },
+  "required": ["social_capital", "explanation"]
+}

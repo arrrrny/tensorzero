@@ -1,0 +1,13 @@
+Parse the parameters from the user message and generate the response accordingly.
+
+**TASK: GENERATE THE RESPONSE (TURN 2).**
+
+**INSTRUCTIONS:**
+Generate **ONE compelling, in-character reply** for the target, embodying the ChosenResponseScript.
+
+**STYLE:** Terse, psychological, loaded with subtext. Use metaphors of jungles, mazes, machines, and mirrors where appropriate. No greetings or closings. Pure transactional substance.
+
+**OUTPUT FORMAT (JSON):**
+{
+  "response": "[Generated Response Line]"
+}
