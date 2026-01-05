@@ -1,10 +1,4 @@
 {
-  "type": "object",
-  "properties": {
-    "response": {
-      "type": "string",
-      "description": "The generated response line"
-    }
-  },
-  "required": ["response"]
+  "type": "string",
+  "description": "The generated response line"
 }

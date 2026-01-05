@@ -141,21 +141,21 @@ user_template = "functions/stagecraft_response/variants/deepseek_baseline/user_t
 [functions.stagecraft_response.variants.openrouter_kimi]
 type = "chat_completion"
 model = "moonshotai/kimi-k2:free"
-weight = 0.1
+weight = 0
 system_template = "functions/stagecraft_response/variants/deepseek_baseline/system_template.minijinja"
 user_template = "functions/stagecraft_response/variants/deepseek_baseline/user_template.minijinja"
 
 [functions.stagecraft_response.variants.openrouter_dolphin]
 type = "chat_completion"
 model = "cognitivecomputations/dolphin-mistral-24b-venice-edition:free"
-weight = 0.1
+weight = 0
 system_template = "functions/stagecraft_response/variants/deepseek_baseline/system_template.minijinja"
 user_template = "functions/stagecraft_response/variants/deepseek_baseline/user_template.minijinja"
 
 [functions.stagecraft_response.variants.openrouter_gemma]
 type = "chat_completion"
 model = "google/gemma-3-27b-it:free"
-weight = 0.1
+weight = 0
 system_template = "functions/stagecraft_response/variants/deepseek_baseline/system_template.minijinja"
 user_template = "functions/stagecraft_response/variants/deepseek_baseline/user_template.minijinja"
 
@@ -188,21 +188,21 @@ user_template = "functions/stagecraft_resolution/variants/deepseek_baseline/user
 [functions.stagecraft_resolution.variants.openrouter_kimi]
 type = "chat_completion"
 model = "moonshotai/kimi-k2:free"
-weight = 0.1
+weight = 0
 system_template = "functions/stagecraft_resolution/variants/deepseek_baseline/system_template.minijinja"
 user_template = "functions/stagecraft_resolution/variants/deepseek_baseline/user_template.minijinja"
 
 [functions.stagecraft_resolution.variants.openrouter_dolphin]
 type = "chat_completion"
 model = "cognitivecomputations/dolphin-mistral-24b-venice-edition:free"
-weight = 0.1
+weight = 0
 system_template = "functions/stagecraft_resolution/variants/deepseek_baseline/system_template.minijinja"
 user_template = "functions/stagecraft_resolution/variants/deepseek_baseline/user_template.minijinja"
 
 [functions.stagecraft_resolution.variants.openrouter_gemma]
 type = "chat_completion"
 model = "google/gemma-3-27b-it:free"
-weight = 0.1
+weight = 0
 system_template = "functions/stagecraft_resolution/variants/deepseek_baseline/system_template.minijinja"
 user_template = "functions/stagecraft_resolution/variants/deepseek_baseline/user_template.minijinja"
 
