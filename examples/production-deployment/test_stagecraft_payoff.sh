@@ -11,7 +11,7 @@ curl -X POST http://localhost:3000/inference \
       "messages": [
         {
           "role": "user",
-          "content": "InitiatorArchetype: Hunter\nTargetArchetype: Operator\nGuessedTargetArchetype: Operator\nStatedIntent: Extract\nActualIntent: Extract"
+          "content": "InitiatorArchetype: Hunter\nTargetArchetype: Operator\nGuessedInitiatorArchetype: Hunter\nGuessedTargetArchetype: Operator\nStatedInitiatorIntent: Extract\nActualInitiatorIntent: Extract\nStatedTargetIntent: Neutralize\nActualTargetIntent: Neutralize"
         }
       ]
     },

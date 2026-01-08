@@ -1,9 +1,11 @@
 Parse the parameters from the user message and calculate the social capital accordingly.
 
-**TASK: CALCULATE SOCIAL CAPITAL.**
+**TASK: CALCULATE SOCIAL CAPITAL FOR BOTH PLAYERS.**
 
 **OUTPUT FORMAT (JSON):**
 {
-  "social_capital": [calculated SC],
-  "explanation": "[Brief explanation of the calculation]"
+  "initiator_social_capital": [calculated SC for initiator],
+  "initiator_explanation": "[Brief explanation for initiator]",
+  "target_social_capital": [calculated SC for target],
+  "target_explanation": "[Brief explanation for target]"
 }

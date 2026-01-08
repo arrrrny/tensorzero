@@ -242,14 +242,14 @@ user_template = "functions/stagecraft_payoff_calculation/variants/deepseek_reaso
 [functions.stagecraft_payoff_calculation.variants.openrouter_dolphin]
 type = "chat_completion"
 model = "cognitivecomputations/dolphin-mistral-24b-venice-edition:free"
-weight = 0.1
+weight = 0
 system_template = "functions/stagecraft_payoff_calculation/variants/deepseek_reasoner/system_template.minijinja"
 user_template = "functions/stagecraft_payoff_calculation/variants/deepseek_reasoner/user_template.minijinja"
 
 [functions.stagecraft_payoff_calculation.variants.openrouter_gemma]
 type = "chat_completion"
 model = "google/gemma-3-27b-it:free"
-weight = 0.1
+weight = 0
 system_template = "functions/stagecraft_payoff_calculation/variants/deepseek_reasoner/system_template.minijinja"
 user_template = "functions/stagecraft_payoff_calculation/variants/deepseek_reasoner/user_template.minijinja"
 
